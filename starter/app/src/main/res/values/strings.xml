@@ -1,3 +1,32 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="shoe_list">Shoe List</string>
+    <string name="welcome">Welcome</string>
+    <string name="instructions">Instructions</string>
+    <string name="shoe_detail">Shoe Detail</string>
+    <string name="shoe_name_detailed">Shoe name: %s</string>
+    <string name="company_detailed">Company: %s</string>
+    <string name="shoe_size_detailed">Size: %.2f</string>
+    <string name="description_detailed">Description: %s\</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="new_login">New Login</string>
+    <string name="login_with_existing_account">Existing account</string>
+    <string name="shoestore_app">ShoeStore app</string>
+    <string name="go_to_instructions">Go to Instructions</string>
+    <string name="instruction_detailed">Here are some instructions to load shoe list:</string>
+    <string name="instruction_detailed_step1">1) after go to the Shoe List, it won\'t be possible to come back to the last screens
+        unless you log out</string>
+    <string name="instruction_detailed_step2">2) in Shoe list screen, use the floating button to add shoes</string>
+    <string name="instruction_detailed_step3">3) use the button below to go to Shoe List</string>
+    <string name="go_to_shoe_list">Go to Shoe List</string>
+    <string name="no_shoes">No shoes</string>
+    <string name="add_shoes">Add shoes</string>
+    <string name="description">Description</string>
+    <string name="shoe_size">Shoe Size</string>
+    <string name="company">Company</string>
+    <string name="shoe_name">Shoe Name</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
 </resources>
