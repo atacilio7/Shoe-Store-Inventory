@@ -9,10 +9,11 @@
             type="com.udacity.shoestore.login.LoginViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/email_text"
@@ -21,20 +22,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="16dp"
             android:text="@string/email"
-            style="@style/DefaultTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/password_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/password"
-            style="@style/DefaultTextView"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_edittext" />
+            style="@style/DefaultTextView" />
 
         <EditText
             android:id="@+id/email_edittext"
@@ -45,10 +33,16 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textEmailAddress"
-            style="@style/DefaultEditText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/email_text" />
+            style="@style/DefaultEditText" />
+
+        <TextView
+            android:id="@+id/password_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/password"
+            style="@style/DefaultTextView" />
 
         <EditText
             android:id="@+id/password_edittext"
@@ -59,37 +53,35 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPassword"
-            style="@style/DefaultEditText"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_text" />
+            style="@style/DefaultEditText" />
 
-        <Button
-            android:id="@+id/newlogin_button"
-            style="@style/DefaultButton"
-            android:layout_width="125dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
-            android:onClick="@{() -> loginViewModel.onCallWelcome()}"
-            android:text="@string/new_login"
-            app:layout_constraintEnd_toStartOf="@+id/existinglogin_button"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/password_edittext" />
+            android:layout_marginEnd="16dp">
 
-        <Button
-            android:id="@+id/existinglogin_button"
-            style="@style/DefaultButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_marginEnd="16dp"
-            android:onClick="@{() -> loginViewModel.onCallWelcome()}"
-            android:text="@string/login_with_existing_account"
-            app:layout_constraintBaseline_toBaselineOf="@+id/newlogin_button"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.516"
-            app:layout_constraintStart_toEndOf="@+id/newlogin_button" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <Button
+                android:id="@+id/newlogin_button"
+                style="@style/DefaultButton"
+                android:layout_width="125dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> loginViewModel.onCallWelcome()}"
+                android:text="@string/new_login" />
+
+            <Button
+                android:id="@+id/existinglogin_button"
+                style="@style/DefaultButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{() -> loginViewModel.onCallWelcome()}"
+                android:text="@string/login_with_existing_account" />
+
+        </LinearLayout>
+
+    </LinearLayout>
 </layout>

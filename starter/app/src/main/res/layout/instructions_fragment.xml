@@ -9,9 +9,11 @@
             type="com.udacity.shoestore.instructions.InstructionsViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
         <TextView
             android:id="@+id/instructions_text"
@@ -20,24 +22,54 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:gravity="left"
-            android:text="@string/instructions"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="@string/instructions" />
 
         <TextView
             android:id="@+id/here_some_instructions_text"
             style="@style/HighlightTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
-            android:layout_marginEnd="32dp"
             android:gravity="center_horizontal"
-            android:text="@string/instruction_detailed"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instructions_text" />
+            android:text="@string/instruction_detailed" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="left"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/instruction_1"
+                style="@style/HighlightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/instruction_detailed_step1"/>
+
+            <TextView
+                android:id="@+id/instruction_2"
+                style="@style/HighlightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/instruction_detailed_step2" />
+
+            <TextView
+                android:id="@+id/instruction_3"
+                style="@style/HighlightTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:text="@string/instruction_detailed_step3" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/button"
@@ -46,49 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:onClick="@{() -> instructionsViewModel.onCallShoeList()}"
-            android:text="@string/go_to_shoe_list"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            android:text="@string/go_to_shoe_list"/>
 
-        <TextView
-            android:id="@+id/instruction_1"
-            style="@style/HighlightTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/instruction_detailed_step1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/here_some_instructions_text" />
-
-        <TextView
-            android:id="@+id/instruction_2"
-            style="@style/HighlightTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/instruction_detailed_step2"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instruction_1" />
-
-        <TextView
-            android:id="@+id/instruction_3"
-            style="@style/HighlightTextView"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginEnd="16dp"
-            android:text="@string/instruction_detailed_step3"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/instruction_2" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 </layout>

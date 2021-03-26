@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <TextView
         android:id="@+id/shoe_name_text_detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
-        android:text="@string/shoe_name_detailed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="8dp"
+        android:text="@string/shoe_name_detailed"/>
 
     <TextView
         android:id="@+id/company_text_detailed"
@@ -22,9 +21,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="@string/company_detailed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoe_name_text_detailed" />
+        android:text="@string/company_detailed" />
 
     <TextView
         android:id="@+id/shoe_size_text_detailed"
@@ -32,9 +29,7 @@
         android:layout_height="19dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="@string/shoe_size_detailed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/company_text_detailed" />
+        android:text="@string/shoe_size_detailed" />
 
     <TextView
         android:id="@+id/description_text_detailed"
@@ -42,19 +37,14 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
-        android:text="@string/description_detailed"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/shoe_size_text_detailed" />
+        android:text="@string/description_detailed" />
 
     <LinearLayout
-        android:layout_width="406dp"
-        android:layout_height="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:background="@android:color/black"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_text_detailed"></LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="horizontal"/>
+</LinearLayout>
