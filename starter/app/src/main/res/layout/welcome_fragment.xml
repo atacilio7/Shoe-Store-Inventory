@@ -9,6 +9,8 @@
             type="com.udacity.shoestore.welcome.WelcomeViewModel" />
     </data>
 
+    <!--LinearLayout was chosen because it's easier to define this simple specification
+    for layout based on horizontal centralized views.-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +35,8 @@
             android:text="@string/shoestore_app"
             style="@style/HighlightTextView" />
 
+        <!--This LinearLayout was chosen to fill in all the available space on view and
+        and allow the Button view to be at the end of the view  -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"

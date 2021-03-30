@@ -8,8 +8,14 @@
         <variable
             name="shoeDetailViewModel"
             type="com.udacity.shoestore.shoe.detail.ShoeDetailViewModel" />
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!--LinearLayout was chosen because the TextView followed by EditText
+    is based on a horizontal pattern to present the fields that user needs to fill in.
+    This aspect provides a better UI visualization for user-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -33,6 +39,7 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={shoe.name}"
             style="@style/DefaultEditText"/>
 
         <TextView
@@ -53,6 +60,7 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={shoe.company}"
             style="@style/DefaultEditText" />
 
         <TextView
@@ -73,6 +81,7 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="numberDecimal"
+            android:text="@={shoe.size}"
             style="@style/DefaultEditText"/>
 
         <TextView
@@ -93,8 +102,11 @@
             android:layout_marginEnd="16dp"
             android:ems="10"
             android:inputType="textPersonName"
+            android:text="@={shoe.description}"
             style="@style/DefaultEditText" />
 
+        <!--LinearLayout was chosen because it's easier to present the buttons
+        on a vertical organization in order to user check what is the best option to choose-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

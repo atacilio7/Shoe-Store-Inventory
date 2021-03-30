@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--LinearLayout was chosen because it's easier to define a specification
+for layout based on vertical aligned to left items-->
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -39,6 +41,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/description_detailed" />
 
+    <!--LinearLayout was chosen only to create a visual effect as a line separator-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="1dp"

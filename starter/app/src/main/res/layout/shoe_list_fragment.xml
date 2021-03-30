@@ -9,6 +9,9 @@
             type="com.udacity.shoestore.shoe.list.ShoeListViewModel" />
     </data>
 
+    <!--ConstraintLayout was chosen this layout is more complex. First of all, "No Shoes" Text view
+    is using all the screen area and FloatingActionButton is positioned in front of this Text view
+    and the ScrollView that is gone until it has any item to be displayed. -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -43,6 +46,8 @@
             app:layout_constraintTop_toTopOf="parent"
             android:visibility="gone">
 
+            <!--This LinearLayout was added as a requirement to add custom views to present
+            the shoe items on the list view.-->
             <LinearLayout
                 android:id="@+id/shoes_list_layout"
                 android:layout_width="match_parent"

@@ -64,13 +64,6 @@ class ShoeListFragment: Fragment() {
     }
 
     private fun addShoes(shoes: List<Shoe>) {
-        val linearLayout = LinearLayout(activity)
-        linearLayout.layoutParams = LinearLayout.LayoutParams(
-            LinearLayout.LayoutParams.MATCH_PARENT,
-            LinearLayout.LayoutParams.MATCH_PARENT
-        )
-        linearLayout.orientation = LinearLayout.VERTICAL
-
         for (shoe in shoes) {
 
             val layoutInflater = layoutInflater
@@ -92,10 +85,8 @@ class ShoeListFragment: Fragment() {
                     shoe.description
             )
 
-            linearLayout.addView(view)
+            binding.shoesListLayout.addView(view)
         }
-
-        binding.shoesListLayout.addView(linearLayout)
     }
 
     override fun onDestroyView() {

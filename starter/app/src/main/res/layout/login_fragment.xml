@@ -9,6 +9,10 @@
             type="com.udacity.shoestore.login.LoginViewModel" />
     </data>
 
+    <!--LinearLayout was chosen because the TextView followed by EditText
+    is based on a horizontal pattern to present the fields that user needs to fill in.
+    This aspect provides a better UI visualization for user-->
+
     <LinearLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
@@ -55,6 +59,8 @@
             android:inputType="textPassword"
             style="@style/DefaultEditText" />
 
+        <!--LinearLayout was chosen because it's easier to present the buttons
+        on a vertical organization in order to user check what is the best option to choose-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.NavHostFragment.findNavController
 import com.udacity.shoestore.MainActivity
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.ShoeDetailFragmentBinding
+import com.udacity.shoestore.models.Shoe
 import com.udacity.shoestore.shoe.list.ShoeListViewModel
 
 
@@ -40,12 +42,18 @@ class ShoeDetailFragment : Fragment() {
         binding.setLifecycleOwner(this)
 
         binding.shoeDetailViewModel = viewModel
+        binding.shoe = newShoe()
 
         viewModel.eventSaveAndGoBackToShoeList.observe(viewLifecycleOwner, Observer { isSaving ->
             if (isSaving) {
-                addShoeOnList()
-                goBackToShoeList()
-                viewModel.onSaveAndGoBackToShoeListCompleted()
+                if(checkNotEmptyFields()) {
+                    addShoeOnList()
+                    goBackToShoeList()
+                    viewModel.onSaveAndGoBackToShoeListCompleted()
+                } else {
+                    Toast.makeText(activity, getString(R.string.fill_before_saving),
+                            Toast.LENGTH_LONG).show()
+                }
             }
         })
         viewModel.eventCancelAndGoBackToShoeList.observe(viewLifecycleOwner, Observer { isCancelling ->
@@ -60,16 +68,27 @@ class ShoeDetailFragment : Fragment() {
         return binding.root
     }
 
+    private fun newShoe(): Shoe? {
+        return Shoe("", 0.00, "", "")
+    }
+
     fun goBackToShoeList() {
         findNavController(this).navigateUp()
     }
 
     fun addShoeOnList(){
         shoeListViewModel.addShoe(
-            binding.shoeNameEdittext.text.toString(),
-            binding.companyEdittext.text.toString(),
-            binding.shoeSizeEdittext.text.toString().toDouble(),
-            binding.descriptionEdittext.text.toString()
+                binding.shoe!!.name,
+                binding.shoe!!.company,
+                binding.shoe!!.size,
+                binding.shoe!!.description
         )
+    }
+
+    private fun checkNotEmptyFields(): Boolean {
+        return binding.shoe!!.name.isNotEmpty() &&
+                binding.shoe!!.company.isNotEmpty() &&
+                (binding.shoe!!.size.toString().isNotEmpty() && !binding.shoe!!.size.isNaN()) &&
+                binding.shoe!!.description.isNotEmpty()
     }
 }
