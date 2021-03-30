@@ -46,14 +46,7 @@ class ShoeDetailFragment : Fragment() {
 
         viewModel.eventSaveAndGoBackToShoeList.observe(viewLifecycleOwner, Observer { isSaving ->
             if (isSaving) {
-                if(checkNotEmptyFields()) {
-                    addShoeOnList()
-                    goBackToShoeList()
-                    viewModel.onSaveAndGoBackToShoeListCompleted()
-                } else {
-                    Toast.makeText(activity, getString(R.string.fill_before_saving),
-                            Toast.LENGTH_LONG).show()
-                }
+                viewModel.onSaveAndGoBackToShoeListCompleted()
             }
         })
         viewModel.eventCancelAndGoBackToShoeList.observe(viewLifecycleOwner, Observer { isCancelling ->
@@ -62,33 +55,37 @@ class ShoeDetailFragment : Fragment() {
                 viewModel.onCancelAndGoBackToShoeListCompleted()
             }
         })
+        viewModel.shoe.observe(viewLifecycleOwner, Observer { newShoe ->
+            if (checkNotEmptyFields(newShoe)) {
+                addShoeOnList(newShoe)
+                goBackToShoeList()
+            } else {
+            Toast.makeText(activity, getString(R.string.fill_before_saving),
+                    Toast.LENGTH_LONG).show()
+            }
+        })
 
         setHasOptionsMenu(false)
 
         return binding.root
     }
 
-    private fun newShoe(): Shoe? {
-        return Shoe("", 0.00, "", "")
+    private fun newShoe(): Shoe {
+        return Shoe("", 0.0, "", "")
     }
 
     fun goBackToShoeList() {
         findNavController(this).navigateUp()
     }
 
-    fun addShoeOnList(){
-        shoeListViewModel.addShoe(
-                binding.shoe!!.name,
-                binding.shoe!!.company,
-                binding.shoe!!.size,
-                binding.shoe!!.description
-        )
+    fun addShoeOnList(shoe: Shoe){
+        shoeListViewModel.addShoe(shoe)
     }
 
-    private fun checkNotEmptyFields(): Boolean {
-        return binding.shoe!!.name.isNotEmpty() &&
-                binding.shoe!!.company.isNotEmpty() &&
-                (binding.shoe!!.size.toString().isNotEmpty() && !binding.shoe!!.size.isNaN()) &&
-                binding.shoe!!.description.isNotEmpty()
+    private fun checkNotEmptyFields(shoe: Shoe): Boolean {
+        return shoe.name.isNotEmpty() &&
+                shoe.company.isNotEmpty() &&
+                (shoe.size.toString().isNotEmpty() && !shoe.size.isNaN()) &&
+                shoe.description.isNotEmpty()
     }
 }

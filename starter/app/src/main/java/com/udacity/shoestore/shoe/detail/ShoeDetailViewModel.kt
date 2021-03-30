@@ -3,6 +3,7 @@ package com.udacity.shoestore.shoe.detail
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.udacity.shoestore.models.Shoe
 import timber.log.Timber
 
 class ShoeDetailViewModel: ViewModel() {
@@ -15,11 +16,16 @@ class ShoeDetailViewModel: ViewModel() {
     val eventCancelAndGoBackToShoeList: LiveData<Boolean>
         get() = _eventCancelAndGoBackToShoeList
 
+    private val _shoe = MutableLiveData<Shoe>()
+    val shoe: LiveData<Shoe>
+        get() = _shoe
+
     init {
         Timber.i("ShoeDetailViewModel created")
     }
 
-    fun onSaveAndGoBackToShoeList() {
+    fun onSaveAndGoBackToShoeList(shoe: Shoe) {
+        _shoe.value = shoe
         _eventSaveAndGoBackToShoeList.value = true
     }
 

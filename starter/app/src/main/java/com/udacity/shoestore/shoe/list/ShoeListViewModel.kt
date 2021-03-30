@@ -32,8 +32,7 @@ class ShoeListViewModel: ViewModel() {
         Timber.i("ShoeListViewModel cleared")
     }
 
-    fun addShoe(shoeName: String, company: String, shoeSize: Double, description: String) {
-        val shoe = Shoe(shoeName, shoeSize, company, description, mutableListOf())
+    fun addShoe(shoe: Shoe) {
         _shoeList.add(shoe)
         shoeList.value = _shoeList
     }
